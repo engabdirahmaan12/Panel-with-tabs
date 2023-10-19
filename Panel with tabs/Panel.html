@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel with Tabs</title>
+    <style>
+        .tab-container {
+            width: 90vh;
+            margin: 0 auto;
+        }
+
+        .tab-container .tabs {
+            display: flex;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .tab-container .tabs li {
+            flex: 1;
+        }
+
+        .tab-container .tabs li a {
+            display: block;
+            display: flex;
+            text-align: center;
+            padding: 10px;
+            background-color: #f2f2f2;
+            color: chocolate;
+            font-size: bold;
+            text-decoration: none;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .tab-container .tabs li a:hover {
+            background-color: #e6e6e6;
+        }
+
+        .tab-container .tabs li.active a {
+            background-color: bisque;
+            border-bottom-color: #fff;
+        }
+
+        .tab-container .content {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab-container">
+        <ul class="tabs">
+            <li class="active"><a href="#tab1">Sidee Loo Bartaa Coding?</a></li>
+            <li><a href="#tab2">Web Development</a></li>
+            <li><a href="#tab3">Front-End Development</a></li>
+        </ul>
+        <div class="content" id="tab1">
+            <h2>Sidee Loo Bartaa Coding?</h2>
+            <p>Cilmiga diinwaangalinta kumbuyuutarka (Programming) waa cilmi qarniga aan hada ku noolnahay aad loogu baahanyahay, sababtoo ah waxaa aad u batay isticmaalka qalabka korontada ku shaqeeya (Electronic Devices). Barashada diinwaangalinta kumbuyuutarka waxay ka bilaabataa in qofka uu hami sare u hayo inuu aad iskugu taxaluujiyo cilmi dadka intiisa badan aad ugu adag.
+
+Barashada coding-ka ama programming-ka wuxuu u kala qaybsamaa dhowr qaybood oo qaybtiiba ay qaybo kale usii kala baxdo. Qaybahaas waxaa ka mid ah Web Development (dhisida shabakadaha internetka), Desktop Software Development (dhisida software-da kumbuyuutarka loo isticmaalo), iyo App Development (dhisida application-nada taleefonada loo isticmaalo). Waxaa jiro noocyo kale lakin dadka inta badan dhowrkaas nooc ayay bartaan. Noockasta oo aad isku daydo, waxaad u baahantahay inaad barato hal ama dhowr luuqadood..</p>
+        </div>
+        <div class="content" id="tab2">
+            <h2>Web Development</h2>
+            <p>Web Development (dhisida/hormarinta shabakadaha internetka) oo ah mida aan aniga bartay. Web Development wuxuu ka koobanyahay labo qaybood, qaybta hore waa Front-End Development, qaybta labaadna waa Back-End Development. Labadoodaba waan sharaxeynaaa waxa laga wado.</p>
+        </div>
+        <div class="content" id="tab3">
+            <h2>Front-End Development</h2>
+            <p>Front-End Development waa dhisida uu qofka dhiso website-ka qaybtiisa hore oo ay dadka arkaan. Markaad gasho shakada Somali BBC, waxaad arkeysaa sawiro iyo qoraalo si habeysan iskugu jira, qoraalada waxay leeyihiin cinwaan (Title) fartiisa ay xoog leedahay (Bold). Waxaas oo dhan qof ayaa saas u habeeyay oo qurxiyay.
+
+Qofkaas wuxuu isticmaalay luuqad la yiraahdo HTML (Hyper Text Markup Language) oo loogu talagalay inay kala qaybiso qoraalada, dhismo habeysanna siiso qaabka ay shabakada u taagantahay. Waxaan dhihi karnaa HTML waa lafaha shabakada, sida jirka bini’aadanka uu lafo u leeyahay.</p>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tabs li');
+        const contents = document.querySelectorAll('.content');
+
+        tabs.forEach((tab) => {
+            tab.addEventListener('click', function () {
+                const activeTab = this;
+                const activeTabId = activeTab.querySelector('a').getAttribute('href');
+
+                tabs.forEach((tab) => {
+                    tab.classList.remove('active');
+                });
+
+                contents.forEach((content) => {
+                    content.style.display = 'none';
+                });
+
+                activeTab.classList.add('active');
+                document.querySelector(activeTabId).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
